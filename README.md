@@ -1,19 +1,19 @@
 # TestForceUpdate
 Android 6.0运行时权限，强制更新app 和 非强制更新app
 
-    网上关于 6.0 运行时权限的文章不少，我做这个项目的时候也是从这些文章中一步一步了解的，现在整理分享给大家：
+网上关于 6.0 运行时权限的文章不少，我做这个项目的时候也是从这些文章中一步一步了解的，现在整理分享给大家：
 
-    [CSDN:鸿阳大神的 Android 6.0 运行时权限处理完全解析](http://blog.csdn.net/lmj623565791/article/details/50709663)
+[CSDN:鸿阳大神的 Android 6.0 运行时权限处理完全解析](http://blog.csdn.net/lmj623565791/article/details/50709663)
 
-    [博客园：谈谈Android 6.0运行时权限理解](http://www.cnblogs.com/cr330326/p/5181283.html)
+[博客园：谈谈Android 6.0运行时权限理解](http://www.cnblogs.com/cr330326/p/5181283.html)
 
-    [http://www.cnblogs.com/Fndroid/p/5542526.html](http://www.cnblogs.com/Fndroid/p/5542526.html)
+[http://www.cnblogs.com/Fndroid/p/5542526.html](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/checkselfpermission.png?raw=true)
 
-    [https://blog.coding.net/blog/understanding-marshmallow-runtime-permission](https://blog.coding.net/blog/understanding-marshmallow-runtime-permission)
-    暴躁如我，先放特效（最后崩溃是因为，apk签名不一致。）
-    第一张是强制更新的
+[https://blog.coding.net/blog/understanding-marshmallow-runtime-permission](https://blog.coding.net/blog/understanding-marshmallow-runtime-permission)
+暴躁如我，先放特效（最后崩溃是因为，apk签名不一致。）
+第一张是强制更新的
     ![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/tree/master/readme_img/forceupdate.gif)
-    第二张是非强制更新：
+第二张是非强制更新：
     ![这里写图片描述](http://img.blog.csdn.net/20170428182607620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjY3MTA3MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
     首先，说下Android 6.0 版本之前的权限，在安装app的时候就默认授予的，用户没有办法去修改权限设置。但是6.0版本出现后，为了提高Android app 的安全箱，Google增生了一个运行时权限的机制。
     总的来说，就是，用户在安装应用的时候并不会默认开启所有权限，只有当用户的操作行为触及到某个权限时，系统会给出：“是否允许开启权限”的安全警告。
@@ -29,7 +29,7 @@ Android 6.0运行时权限，强制更新app 和 非强制更新app
     在AndroidManifest文件中添加需要的权限。更新下载安装app，需要读写sd卡数据
     因此权限：
 
-    ```
+```
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
     ```
@@ -110,9 +110,9 @@ Android 6.0运行时权限，强制更新app 和 非强制更新app
     这里就用到步骤二了。**PackageManager.PERMISSION_GRANTED呀！** 通过判断数组元素是否等于PackageManager.PERMISSION_GRANTED就行了呀。
 
     当然，为了使app更加人性化，我们在app未通过授权，又未显示授权框的时候，引导用户去**设置**中修改app权限：
-    ` MySystemUtils.goToSetPermission(activity,"在设置-应用-权限中打开SD卡存储权限，以保证功能的正常使用",JHConstants.REQ_PERMISSION_CODE);`
+` MySystemUtils.goToSetPermission(activity,"在设置-应用-权限中打开SD卡存储权限，以保证功能的正常使用",JHConstants.REQ_PERMISSION_CODE);`
 
-    ```
+ ```
     /**
     * 对于其他的权限，其实申请的逻辑是类似的；唯一不同的肯定就是参数,
     * 我们需要3个参数:Activity|Fragment、权限字符串数组、int型申请码。
@@ -139,7 +139,7 @@ Android 6.0运行时权限，强制更新app 和 非强制更新app
     .setCancelable(false)
     .show();
     }
-    ```
+ ```
 
     为什么要加一个req_permission的参数呢？
     因为，如果是强制更新的话，用户进入到设置页面，啥都不干，又点击返回按钮，就回来了，这时候，界面跟本没有任何回调，但是加了一个req_permission，可以在onActivityResult中获取到请求码，然后再继续进行弹窗，从而实现流氓级的强制更新（说实话，也不算是流氓，这个也是被逼无奈，如果版本里面有重大bug，用户又不更新，那咋办？用户会一直使用bug级的app。）
