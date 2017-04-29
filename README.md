@@ -12,7 +12,7 @@ Android 6.0运行时权限，强制更新app 和 非强制更新app
     [https://blog.coding.net/blog/understanding-marshmallow-runtime-permission](https://blog.coding.net/blog/understanding-marshmallow-runtime-permission)
     暴躁如我，先放特效（最后崩溃是因为，apk签名不一致。）
     第一张是强制更新的
-    ![这里写图片描述](http://img.blog.csdn.net/20170428182532260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjY3MTA3MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+    ![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/tree/master/readme_img/forceupdate.gif)
     第二张是非强制更新：
     ![这里写图片描述](http://img.blog.csdn.net/20170428182607620?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjY3MTA3MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
     首先，说下Android 6.0 版本之前的权限，在安装app的时候就默认授予的，用户没有办法去修改权限设置。但是6.0版本出现后，为了提高Android app 的安全箱，Google增生了一个运行时权限的机制。
