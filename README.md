@@ -11,6 +11,7 @@
 暴躁如我，先放特效（最后崩溃是因为，apk签名不一致。）
 
 第一张是强制更新的，第二张是非强制更新。
+
 ![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/forceupdate.gif?raw=true)![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/normal_update.gif?raw=true)
 
 首先，说下Android 6.0 版本之前的权限，在安装app的时候就默认授予的，用户没有办法去修改权限设置。但是6.0版本出现后，为了提高Android app 的安全箱，Google增生了一个运行时权限的机制。
@@ -44,7 +45,7 @@ if (ContextCompat.checkSelfPermission(thisActivity,
 ```
 这里只需要注意下 checkSelfPermission()这个是判断权限的方法的返回值
 看源码很简单就可以知道大概的意思 
-![这里写图片描述](http://img.blog.csdn.net/20170428112441844?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjY3MTA3MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/checkselfpermission.png?raw=true)
 参数二就是你要检查的权限
 返回值就是检查的结果：
 
@@ -67,7 +68,7 @@ if (ContextCompat.checkSelfPermission(thisActivity,
 这里注意，requestPermissions（）方法
 参数一：是一个权限的数组
 参数二：是一个请求权限的请求码（就像是startActivityForResult方法中的requestCode一样一样的），这个请求码，在后面的回调方法中会用到。
-![这里写图片描述](http://img.blog.csdn.net/20170428114810762?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2luYXRfMjY3MTA3MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/requestpermissions.png?raw=true)
 
 **4.处理权限的回调**
 
