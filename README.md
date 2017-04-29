@@ -10,10 +10,9 @@
 
 暴躁如我，先放特效（最后崩溃是因为，apk签名不一致。）
 
-第一张是强制更新的
-![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/forceupdate.gif?raw=true)
-第二张是非强制更新：
-![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/normal_update.gif?raw=true)
+第一张是强制更新的，第二张是非强制更新。
+![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/forceupdate.gif?raw=true)![这里写图片描述](https://github.com/SuperChandler/TestForceUpdate/blob/master/readme_img/normal_update.gif?raw=true)
+
 首先，说下Android 6.0 版本之前的权限，在安装app的时候就默认授予的，用户没有办法去修改权限设置。但是6.0版本出现后，为了提高Android app 的安全箱，Google增生了一个运行时权限的机制。
 总的来说，就是，用户在安装应用的时候并不会默认开启所有权限，只有当用户的操作行为触及到某个权限时，系统会给出：“是否允许开启权限”的安全警告。
 
